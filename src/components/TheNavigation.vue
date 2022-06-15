@@ -3,9 +3,11 @@
   <nav class="navigation-container transparent">
     <div class="navigation-wrapper">
       <div class="left-side">
-        <a href="/" class="logo"> <LogoIcon /> </a>
-        <a href="/" class="navigation-link black-link">HOME</a>
-        <a href="/about" class="navigation-link black-link">ABOUT HYPE</a>
+        <RouterLink to="/" class="logo"> <LogoIcon /> </RouterLink>
+        <RouterLink to="/" class="navigation-link black-link">HOME</RouterLink>
+        <RouterLink to="/about" class="navigation-link black-link"
+          >ABOUT HYPE</RouterLink
+        >
         <p
           class="navigation-link black-link special-link"
           :class="isShowingBrand ? 'active' : ''"
@@ -15,14 +17,14 @@
         </p>
       </div>
       <div class="center-side">
-        <a
+        <RouterLink
           v-for="brand in brands"
           :key="brand.name"
-          :href="`/brands/${brand.name}`"
+          :to="`/brands/${brand.name}`"
           class="navigation-link black-link brand-link"
         >
           {{ brand.name }}
-        </a>
+        </RouterLink>
       </div>
       <div class="right-side">
         <RouterLink to="/search" class="navigation-link black-link"
@@ -72,15 +74,16 @@
       :class="isShowingBrand ? 'showing' : ''"
       @mouseleave="isShowingBrand = false"
     >
-      <a
+      <RouterLink
         v-for="brand in brands"
         :key="brand.name"
-        :href="`/brands/${brand.name}`"
+        :to="`/brands/${brand.name}`"
         class="navigation-link black-link brand-link"
       >
         {{ brand.name }}
-      </a>
+      </RouterLink>
     </div>
+
     <CartPopup
       :isShowing="isShowingCart"
       @mouseleave="isShowingCart = screenWidth <= 768"
@@ -92,21 +95,25 @@
       :class="isShowingMobile ? 'showing' : ''"
     >
       <div class="top-part">
-        <a
+        <RouterLink
           v-for="brand in brands"
           :key="brand.name"
-          :href="`/brands/${brand.name}`"
+          :to="`/brands/${brand.name}`"
           class="navigation-link black-link"
         >
           {{ brand.name }}
-        </a>
+        </RouterLink>
       </div>
       <div class="bottom-part">
         <RouterLink to="/search" class="navigation-link black-link">
           SEARCH
         </RouterLink>
-        <a class="navigation-link black-link"> BAG ({{ cart.length }}) </a>
-        <a href="/about" class="navigation-link black-link"> ABOUT HYPE </a>
+        <RouterLink class="navigation-link black-link">
+          BAG ({{ cart.length }})
+        </RouterLink>
+        <RouterLink to="/about" class="navigation-link black-link">
+          ABOUT HYPE
+        </RouterLink>
       </div>
       <small class="copyright-mobile">© HYPE - 2021</small>
     </div>

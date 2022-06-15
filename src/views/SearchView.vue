@@ -38,7 +38,7 @@ export default {
     this.dataProducts = JSON.parse(localStorage.getItem("brands"));
     this.initialValue();
     if (this.$route.query.q) {
-      this.inputVal = this.$route.query.q;
+      this.inputVal = this.$route.query.q || "";
       this.populateShowedProducts();
     }
   },

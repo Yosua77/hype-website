@@ -126,14 +126,14 @@ export default {
       <div class="product-detail-wrapper">
         <div class="detail-header">
           <p class="product-subtitle">
-            <a :href="`/brands/${brand}`">{{ brand }}</a> /
-            <a :href="`/brands/${brand}?gender=${product.gender}`">{{
+            <RouterLink :to="`/brands/${brand}`">{{ brand }}</RouterLink> /
+            <RouterLink :to="`/brands/${brand}?gender=${product.gender}`">{{
               product.gender
-            }}</a>
+            }}</RouterLink>
             /
-            <a :href="`/brands/${brand}?type=${product.type}`">{{
+            <RouterLink :to="`/brands/${brand}?type=${product.type}`">{{
               product.type
-            }}</a>
+            }}</RouterLink>
           </p>
           <h4 class="product-title">
             {{ product.title }} {{ product.subtitle }}
